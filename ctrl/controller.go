@@ -68,21 +68,8 @@ func (c *Controller) Down(ctx context.Context) error {
 }
 
 func (c *Controller) cleanup(ctx context.Context) error {
-	//containers, err := c.cli.ContainerList(ctx, types.ContainerListOptions{})
-	//if err != nil {
-	//	return errors.Wrap(err, "can't fetch containers list")
-	//}
-	//
-	//for _, container := range containers {
-	//	if _, ok := c.img[container.Image]; ok {
-	//		if err := c.cli.ContainerRemove(ctx, container.ID, types.ContainerRemoveOptions{
-	//			Force:         true,
-	//			RemoveVolumes: true,
-	//			RemoveLinks:   true,
-	//		}); err != nil {
-	//			return errors.Wrapf(err, "can't complete cleanup. can't remove container %s", container.ID[:10])
-	//		}
-	//	}
-	//}
+	if err := c.planeCleanup(ctx); err != nil {
+		return errors.Wrap(err, "")
+	}
 	return nil
 }
