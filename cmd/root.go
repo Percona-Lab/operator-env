@@ -14,7 +14,7 @@ var (
 
 // rootCmd represents the base command when called without any subcommands.
 var rootCmd = &cobra.Command{
-	Use:   "openv",
+	Use:   "op-env",
 	Short: "Main command for calling subcommands",
 }
 
